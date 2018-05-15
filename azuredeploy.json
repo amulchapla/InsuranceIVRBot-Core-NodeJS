@@ -1,0 +1,306 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.1.0.0",
+  "parameters": {
+    "admin-user": {
+      "type": "string",
+      "defaultValue": "adminuser",
+      "metadata": { "description": "User name for Azure SQL" }
+    },
+    "sql-password": {
+      "type": "string",
+      "metadata": { "description": "Password for Azure SQL" }
+    },
+    "app-id": {
+      "type": "string",
+      "metadata": { "description": "App Id created at https://aka.ms/msaappid (create a 'Converged' app)" }
+    },
+    "app-password": {
+      "type": "string",
+      "metadata": { "description": "App password created at https://aka.ms/msaappid (create a 'Converged' app)" }
+    },
+    "luis-management-key": {
+      "type": "string",
+      "metadata": { "description": "Programatic key from https://www.luis.ai/user/settings" }
+    },
+    "PatternAssetBaseUrl": {
+      "type": "string",
+      "defaultValue": "https://bostondata.blob.core.windows.net/ivr-bot",
+      "metadata": {
+        "description": "Base URL of app build"
+      }
+    }
+  },
+  "variables": {
+    "storage-version": "2017-06-01",
+    "serverfarms-version": "2016-09-01",
+    "sites-version": "2016-08-01",
+    "documentdb-version": "2016-03-31",
+    "search-version": "2015-08-19",
+    "sql-server-version": "2014-04-01",
+    "sql-database-version": "2015-01-01",
+    "cognitive-version": "2016-02-01-preview",
+    "web-farm-version": "2016-09-01",
+    "web-site-version": "2016-08-01",
+    "bot-service-version": "2017-12-01",
+    "prefix": "ivr",
+    "unique": "[uniqueString(resourceGroup().id)]",
+    "location": "[resourceGroup().location]",
+    "web-app-url": "[concat(parameters('PatternAssetBaseUrl'), '/app.zip')]",
+    "speech-region": "global",
+    "luis-region": "westus",
+    "storage-name": "[concat(variables('prefix'), 'stor', variables('unique'))]",
+    "sql-server-name": "[concat(variables('prefix'), 'sql', variables('unique'))]",
+    "sql-database-name": "[concat(variables('prefix'), 'db', variables('unique'))]",
+    "documentdb-name": "[concat(variables('prefix'), 'ddb', variables('unique'))]",
+    "speech-name": "[concat(variables('prefix'), 'cogspeech', variables('unique'))]",
+    "luis-name": "[concat(variables('prefix'), 'cogluis', variables('unique'))]",
+    "search-name": "[concat(variables('prefix'), 'search', variables('unique'))]",
+    "web-farm-name": "[concat(variables('prefix'), 'webplan', variables('unique'))]",
+    "web-site-name": "[concat(variables('prefix'), 'web', variables('unique'))]",
+    "bot-name": "[concat(variables('prefix'), 'bot', variables('unique'))]",
+    "storage-id": "[resourceId('Microsoft.Storage/storageAccounts', variables('storage-name'))]",
+    "sql-server-id": "[resourceId('Microsoft.Sql/servers', variables('sql-server-name'))]",
+    "sql-database-id": "[resourceId('Microsoft.Sql/servers/databases', variables('sql-server-name'), variables('sql-database-name'))]",
+    "documentdb-id": "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('documentdb-name'))]",
+    "speech-id": "[resourceId('Microsoft.CognitiveServices/accounts', variables('speech-name'))]",
+    "luis-id": "[resourceId('Microsoft.CognitiveServices/accounts', variables('luis-name'))]",
+    "search-id": "[resourceId('Microsoft.Search/searchServices', variables('search-name'))]",
+    "web-farm-id": "[resourceId('Microsoft.Web/serverfarms', variables('web-farm-name'))]",
+    "web-site-id": "[resourceId('Microsoft.Web/sites', variables('web-site-name'))]",
+    "web-deploy-id": "[resourceId('Microsoft.Web/sites/extensions', variables('web-site-name'), 'MSDeploy')]",
+    "web-config-appsettings-id": "[resourceId('Microsoft.Web/sites/config', variables('web-site-name'), 'appsettings')]",
+    "web-config-web-id": "[resourceId('Microsoft.Web/sites/config', variables('web-site-name'), 'web')]",
+    "bot-id": "[resourceId('Microsoft.BotService/botServices', variables('bot-name'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storage-name')]",
+      "apiVersion": "[variables('storage-version')]",
+      "location": "[variables('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage"
+    },
+    {
+      "type": "Microsoft.Sql/servers",
+      "name": "[variables('sql-server-name')]",
+      "location": "[variables('location')]",
+      "apiVersion": "[variables('sql-server-version')]",
+      "properties": {
+        "administratorLogin": "[parameters('admin-user')]",
+        "administratorLoginPassword": "[parameters('sql-password')]",
+        "version": "12.0"
+      },
+      "resources": [
+        {
+          "name": "[variables('sql-database-name')]",
+          "type": "databases",
+          "location": "[variables('location')]",
+          "apiVersion": "[variables('sql-database-version')]",
+          "dependsOn": [
+            "[variables('sql-server-id')]"
+          ],
+          "properties": {
+            "collation": "SQL_Latin1_General_CP1_CI_AS",
+            "requestedServiceObjectiveName": "S0",
+            "maxSizeBytes": "268435456000",
+            "sampleName": "AdventureWorksLT"
+          }
+        },
+        {
+          "type": "firewallrules",
+          "apiVersion": "[variables('sql-server-version')]",
+          "dependsOn": [
+            "[variables('sql-server-id')]"
+          ],
+          "location": "[variables('location')]",
+          "name": "AllowAllWindowsAzureIps",
+          "properties": {
+            "endIpAddress": "0.0.0.0",
+            "startIpAddress": "0.0.0.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "name": "[variables('documentdb-name')]",
+      "apiVersion": "[variables('documentdb-version')]",
+      "location": "[variables('location')]",
+      "properties": {
+        "databaseAccountOfferType": "Standard"
+      }
+    },
+    {
+      "type": "Microsoft.Search/searchServices",
+      "name": "[variables('search-name')]",
+      "apiVersion": "[variables('search-version')]",
+      "location": "[variables('location')]",
+      "sku": {
+        "name": "basic"
+      }
+    },
+    {
+      "type": "Microsoft.CognitiveServices/accounts",
+      "name": "[variables('speech-name')]",
+      "apiVersion": "[variables('cognitive-version')]",
+      "location": "[variables('speech-region')]",
+      "sku": {
+        "name": "S0"
+      },
+      "kind": "Bing.Speech",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.CognitiveServices/accounts",
+      "name": "[variables('luis-name')]",
+      "apiVersion": "[variables('cognitive-version')]",
+      "location": "[variables('luis-region')]",
+      "sku": {
+        "name": "S0"
+      },
+      "kind": "LUIS",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "[variables('web-farm-name')]",
+      "apiVersion": "[variables('web-farm-version')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "S1"
+      },
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "name": "[variables('web-site-name')]",
+      "apiVersion": "[variables('web-site-version')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[variables('web-farm-id')]",
+        "[variables('storage-id')]",
+        "[variables('sql-database-id')]",
+        "[variables('documentdb-id')]",
+        "[variables('search-id')]",
+        "[variables('speech-id')]",
+        "[variables('luis-id')]"
+      ],
+      "properties": {
+        "serverFarmId": "[variables('web-farm-id')]"
+      },
+      "resources": [
+        {
+          "type": "extensions",
+          "name": "MSDeploy",
+          "apiVersion": "[variables('web-site-version')]",
+          "dependsOn": [
+            "[variables('web-site-id')]"
+          ],
+          "properties": {
+            "packageUri": "[variables('web-app-url')]",
+            "dbType": "None",
+            "connectionString": ""
+          }
+        },
+        {
+          "type": "config",
+          "name": "appsettings",
+          "apiVersion": "[variables('web-site-version')]",
+          "dependsOn": [
+            "[variables('web-site-id')]",
+            "[variables('web-deploy-id')]"
+          ],
+          "properties": {
+            "WEBSITE_NODE_DEFAULT_VERSION": "7.7.4",
+            "CALLBACK_URL": "[concat('https://', variables('web-site-name'), '.azurewebsites.net/api/calls')]",
+            "MICROSOFT_APP_ID": "[parameters('app-id')]",
+            "MICROSOFT_APP_PASSWORD": "[parameters('app-password')]",
+            "LUIS_REGION": "[variables('luis-region')]",
+            "LUIS_KEY": "[listKeys(variables('luis-id'), variables('cognitive-version')).key1]",
+            "LUIS_MANAGER_KEY": "[parameters('luis-management-key')]",
+            "LUIS_APP_ID": "",
+            "SPEECH_KEY": "[listKeys(variables('speech-id'), variables('cognitive-version')).key1]",
+            "SPEECH_ENDPOINT": "https://speech.platform.bing.com/recognize",
+            "SPEECH_REGION": "",
+            "SEARCH_SERVICE": "[variables('search-name')]",
+            "SEARCH_KEY": "[listAdminKeys(variables('search-id'), variables('search-version')).primaryKey]",
+            "BLOB_ACCOUNT": "[variables('storage-name')]",
+            "BLOB_KEY": "[listKeys(variables('storage-id'), variables('storage-version')).keys[0].value]",
+            "DDB_URL": "[reference(variables('documentdb-name')).documentEndpoint]",
+            "DDB_KEY": "[listKeys(variables('documentdb-id'), variables('documentdb-version')).primaryMasterKey]",
+            "SQL_HOST": "[reference(variables('sql-server-id'), variables('sql-server-version')).fullyQualifiedDomainName]",
+            "SQL_USER": "[parameters('admin-user')]",
+            "SQL_PASSWORD": "[parameters('sql-password')]",
+            "SQL_DATABASE": "[variables('sql-database-name')]",
+            "LOG_BLOB_CONTAINER": "ivr-bot-audio",
+            "LOG_DDB_DATABASE": "ivr-bot",
+            "LOG_DDB_COLLECTION": "events",
+            "STORE_DDB_DATABASE": "ivr-bot",
+            "STORE_DDB_COLLECTION": "sessions"
+          }
+        },
+        {
+          "type": "config",
+          "name": "web",
+          "apiVersion": "[variables('web-site-version')]",
+          "dependsOn": [
+            "[variables('web-site-id')]",
+            "[variables('web-config-appsettings-id')]"
+          ],
+          "properties": {
+            "alwaysOn": true
+          }
+        },
+        {
+          "type": "config",
+          "name": "logs",
+          "apiVersion": "[variables('web-site-version')]",
+          "dependsOn": [
+            "[variables('web-site-id')]",
+            "[variables('web-config-web-id')]"
+          ],
+          "properties": {
+            "applicationLogs": {
+              "fileSystem": {
+                "level": "Verbose"
+              }
+            }
+          }
+        }
+        
+      ]
+    },
+    {
+      "type": "Microsoft.BotService/botServices",
+      "name": "[variables('bot-name')]",
+      "apiVersion": "[variables('bot-service-version')]",
+      "kind": "bot",
+      "sku": { "name": "S1" },
+      "location": "global",
+      "properties": {
+        "enabledChannels": [ "webchat", "directline" ],
+        "msaAppId": "[parameters('app-id')]",
+        "configuredChannels": [ ],
+        "endpointVersion": "3.0",
+        "displayName": "IVR Skype Bot",
+        "description": "Details at https://github.com/Azure/cortana-intelligence-interactive-voice-response-bot",
+        "iconUrl": "//bot-framework.azureedge.net/bot-icons-v1/bot-framework-default.png",
+        "endpoint": "[concat('https://', variables('web-site-name'), '.azurewebsites.net/api/chat')]"
+      }
+    }
+  ],
+  "outputs": {
+    "siteHostName": {
+      "value": "[reference(variables('web-site-name')).hostNames[0]]",
+      "type": "string"
+    },
+    "botServiceName": {
+      "value": "[variables('bot-name')]",
+      "type": "string"
+    }
+  }
+}

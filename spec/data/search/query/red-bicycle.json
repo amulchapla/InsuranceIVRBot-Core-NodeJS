@@ -1,0 +1,6 @@
+{
+  "queryType": "full",
+  "search": "red bicycle colors:'red'",
+  "top": 3,
+  "select": "name,category,colors,sizes,sex,products,description_EN"
+}

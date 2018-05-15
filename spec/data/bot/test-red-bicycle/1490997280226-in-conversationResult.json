@@ -1,0 +1,72 @@
+{
+  "agent": "botbuilder",
+  "source": "skype",
+  "sourceEvent": {
+    "id": "ebbd23fe-a039-4c71-90d3-0a0afd1d4123",
+    "operationOutcome": {
+      "type": "recordOutcome",
+      "id": "302ce21d-4201-44f7-93e5-81d68e054b19",
+      "completionReason": "completedSilenceDetected",
+      "lengthOfRecordingInSecs": 4.22,
+      "format": "wav",
+      "outcome": "success"
+    },
+    "callState": "established",
+    "appState": "{\"useAuth\":true,\"channelId\":\"skype\",\"serviceUrl\":\"https://skype.botframework.com\",\"conversation\":{\"id\":\"ebbd23fe-a039-4c71-90d3-0a0afd1d4123\",\"isGroup\":false},\"participants\":[{\"id\":\"29:1VvkDH1BHcdNyMjqwDs2qTsPxX5hCrwriHCrMrn9_f-g\",\"locale\":\"en\",\"originator\":true},{\"id\":\"28:585b0ba5-e52e-4ac8-b1e2-b00ffaee7267\",\"originator\":false}],\"user\":{\"id\":\"29:1VvkDH1BHcdNyMjqwDs2qTsPxX5hCrwriHCrMrn9_f-g\",\"locale\":\"en\",\"originator\":true},\"bot\":{\"id\":\"28:585b0ba5-e52e-4ac8-b1e2-b00ffaee7267\",\"originator\":false}}",
+    "links": {
+      "call": "https://c-pma-uswe-01.plat.skype.com:6708/platform/v1/calls/b13c9591-be3a-4888-b87c-8da492b1d93e"
+    },
+    "recordedAudio": {
+      "$buffer": "1490997280226-in-conversationResult-f8a342d1772a16c1575fc0845d6694f4.wav"
+    }
+  },
+  "type": "conversationResult",
+  "address": {
+    "useAuth": true,
+    "channelId": "skype",
+    "serviceUrl": "https://skype.botframework.com",
+    "conversation": {
+      "id": "ebbd23fe-a039-4c71-90d3-0a0afd1d4123",
+      "isGroup": false
+    },
+    "participants": [
+      {
+        "id": "29:1VvkDH1BHcdNyMjqwDs2qTsPxX5hCrwriHCrMrn9_f-g",
+        "locale": "en",
+        "originator": true
+      },
+      {
+        "id": "28:585b0ba5-e52e-4ac8-b1e2-b00ffaee7267",
+        "originator": false
+      }
+    ],
+    "user": {
+      "id": "29:1VvkDH1BHcdNyMjqwDs2qTsPxX5hCrwriHCrMrn9_f-g",
+      "locale": "en",
+      "originator": true
+    },
+    "bot": {
+      "id": "28:585b0ba5-e52e-4ac8-b1e2-b00ffaee7267",
+      "originator": false
+    }
+  },
+  "links": {
+    "call": "https://c-pma-uswe-01.plat.skype.com:6708/platform/v1/calls/b13c9591-be3a-4888-b87c-8da492b1d93e"
+  },
+  "operationOutcome": {
+    "type": "recordOutcome",
+    "id": "302ce21d-4201-44f7-93e5-81d68e054b19",
+    "completionReason": "completedSilenceDetected",
+    "lengthOfRecordingInSecs": 4.22,
+    "format": "wav",
+    "outcome": "success"
+  },
+  "recordedAudio": {
+    "$buffer": "1490997280226-in-conversationResult-f8a342d1772a16c1575fc0845d6694f4.wav"
+  },
+  "user": {
+    "id": "29:1VvkDH1BHcdNyMjqwDs2qTsPxX5hCrwriHCrMrn9_f-g",
+    "locale": "en",
+    "originator": true
+  }
+}

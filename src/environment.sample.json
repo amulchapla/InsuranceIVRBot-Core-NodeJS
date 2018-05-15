@@ -1,0 +1,30 @@
+// populate and copy this file to ./dist/environment.json
+// or define all keys as OS environment variables
+{
+  "CALLBACK_URL": "https://ivrweb6qpeihhfnxajc.azurewebsites.net/api/calls",
+  "MICROSOFT_APP_ID": "b92c79c3-4728-41e8-93c8-4e29a98e2e8e",
+  "MICROSOFT_APP_PASSWORD": "vdbphEM3642:;)hnBSWHU1^",
+  "port": 3001,
+  "LUIS_REGION": "westus",
+  "LUIS_APP_ID": "91fc7eeb-72fe-400e-94ef-096e51ff508e",
+  "LUIS_KEY": "895412d671914392982a1671bb52b508",
+  "LUIS_MANAGER_KEY": "8708c0a83b494ee0ad6c4d6c513313d4",
+  "SPEECH_KEY": "7ce722602fe64da98d19cc3600559861",
+  "SPEECH_ENDPOINT": "https://speech.platform.bing.com/recognize",
+  "SPEECH_REGION": null,
+  "SEARCH_SERVICE": "ivrsearch6qpeihhfnxajc",
+  "SEARCH_KEY": "1FF78D010E1918B7FF9E1523695E233A",
+  "BLOB_ACCOUNT": "ivrstor6qpeihhfnxajc",
+  "BLOB_KEY": "7TQGH2l6SvKXtOCp2MNzSwsaDA8bsZJE1DHGXP7zjDVUcG//dj8nlza6Di4qfcEIo94O3vaha0UA7y5EsSe4sw==",
+  "DDB_URL": "https://ivrddb6qpeihhfnxajc.documents.azure.com:443/",
+  "DDB_KEY": "xpVjd0q0Rcwd0cG0vAs7yee2XDNFNlopoWn2l5HMCNwCWFWXh0CoMIvVD6tfbUUFRdsVsc6VBqU9ADAngilQSQ==",
+  "SQL_HOST": "ivrsql6qpeihhfnxajc.database.windows.net",
+  "SQL_USER": "adminuser",
+  "SQL_PASSWORD": "ab12Cd34$678",
+  "SQL_DATABASE": "ivrdb6qpeihhfnxajc",
+  "LOG_BLOB_CONTAINER": "ivr-bot-audio",
+  "LOG_DDB_DATABASE": "ivr-bot",
+  "LOG_DDB_COLLECTION": "events",
+  "STORE_DDB_DATABASE": "ivr-bot",
+  "STORE_DDB_COLLECTION": "sessions"
+}

@@ -1,0 +1,33 @@
+{
+  "query": "red bicycle",
+  "topScoringIntent": {
+    "intent": "None",
+    "score": 0.8180593
+  },
+  "intents": [
+    {
+      "intent": "None",
+      "score": 0.8180593
+    },
+    {
+      "intent": "intent.order.create",
+      "score": 2.01965559E-05
+    },
+    {
+      "intent": "intent.order.status",
+      "score": 1.98424259E-05
+    }
+  ],
+  "entities": [
+    {
+      "entity": "red",
+      "type": "Colors",
+      "startIndex": 0,
+      "endIndex": 2,
+      "score": 1.0,
+      "resolution": {
+        "red": "red"
+      }
+    }
+  ]
+}

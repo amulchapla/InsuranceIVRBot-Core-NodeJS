@@ -1,0 +1,22 @@
+{
+  "name": "productdb",
+  "type": "azuresql",
+  "subtype": null,
+  "description": null,
+  "container": {
+    "name": "[SalesLT].[ProductsForSearch]",
+    "query": null
+  },
+  "credentials": {
+    "connectionString": null
+  },
+  "dataChangeDetectionPolicy": {
+    "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+    "highWaterMarkColumnName": "modifiedDate"
+  },
+  "dataDeletionDetectionPolicy": {
+    "@odata.type": "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
+    "softDeleteColumnName": "deleted",
+    "softDeleteMarkerValue": "1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "products",
+  "description": null,
+  "dataSourceName": "productdb",
+  "targetIndexName": "adventureworks",
+  "parameters": {
+    "configuration": {}
+  },
+  "fieldMappings": [],
+  "disabled": null
+}

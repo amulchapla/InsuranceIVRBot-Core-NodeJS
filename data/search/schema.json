@@ -1,0 +1,399 @@
+{
+  "name": "adventureworks",
+  "fields": [
+    {
+      "name": "productModelId",
+      "type": "Edm.String",
+      "key": true,
+      "searchable": false,
+      "filterable": true,
+      "facetable": false,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "modifiedDate",
+      "type": "Edm.DateTimeOffset",
+      "key": false,
+      "searchable": false,
+      "filterable": true,
+      "facetable": true,
+      "sortable": true,
+      "retrievable": true,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "name",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": "speechAnalyzerEN",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "products",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": false,
+      "filterable": false,
+      "facetable": false,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "description_HE",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": "he.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "description_ZH_CHT",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": "zh-Hans.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "description_EN",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": "speechAnalyzerEN",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "description_AR",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": "ar.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "description_TH",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": "th.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "description_FR",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": "fr.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "maxStandardCost",
+      "type": "Edm.Double",
+      "key": false,
+      "searchable": false,
+      "filterable": true,
+      "facetable": true,
+      "sortable": true,
+      "retrievable": true,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "minStandardCost",
+      "type": "Edm.Double",
+      "key": false,
+      "searchable": false,
+      "filterable": true,
+      "facetable": true,
+      "sortable": true,
+      "retrievable": true,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "maxListPrice",
+      "type": "Edm.Double",
+      "key": false,
+      "searchable": false,
+      "filterable": true,
+      "facetable": true,
+      "sortable": true,
+      "retrievable": true,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "minListPrice",
+      "type": "Edm.Double",
+      "key": false,
+      "searchable": false,
+      "filterable": true,
+      "facetable": true,
+      "sortable": true,
+      "retrievable": true,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "category",
+      "type": "Collection(Edm.String)",
+      "key": false,
+      "searchable": true,
+      "filterable": true,
+      "facetable": true,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": "speechAnalyzerEN",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "colors",
+      "type": "Collection(Edm.String)",
+      "key": false,
+      "searchable": true,
+      "filterable": true,
+      "facetable": true,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "sizes",
+      "type": "Collection(Edm.String)",
+      "key": false,
+      "searchable": true,
+      "filterable": true,
+      "facetable": true,
+      "sortable": false,
+      "retrievable": true,
+      "analyzer": "sizeAnalyzer",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    },
+    {
+      "name": "sex",
+      "type": "Edm.String",
+      "key": false,
+      "searchable": true,
+      "filterable": true,
+      "facetable": true,
+      "sortable": true,
+      "retrievable": true,
+      "analyzer": "sexAnalyzer",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": []
+    }
+  ],
+  "suggesters": [],
+  "scoringProfiles": [
+    {
+      "name": "weighted",
+      "text": {
+        "weights": {
+          "name": 3,
+          "category": 6,
+          "colors": 2,
+          "sizes": 2,
+          "sex": 2
+        }
+      },
+      "functions": [],
+      "functionAggregation": "sum"
+    },
+    {
+      "name": "sex",
+      "text": {
+        "weights": {
+          "name": 3,
+          "category": 2,
+          "colors": 2,
+          "sizes": 2,
+          "sex": 2
+        }
+      },
+      "functions": [
+        {
+          "type": "tag",
+          "boost": 4,
+          "fieldName": "sex",
+          "interpolation": "constant",
+          "tag": {
+            "tagsParameter": "sex"
+          }
+        }
+      ],
+      "functionAggregation": "sum"
+    },
+    {
+      "name": "none",
+      "functions": [],
+      "functionAggregation": "sum"
+    }
+  ],
+  "defaultScoringProfile": "weighted",
+  "analyzers": [
+    {
+      "name": "speechAnalyzerEN",
+      "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
+      "charFilters": [
+        "expandAcronym2Char",
+        "expandAcronym3Char"
+      ],
+      "tokenizer": "englishTokenizer",
+      "tokenFilters": [
+        "lowercase",
+        "productSynonyms"
+      ]
+    },
+    {
+      "name": "sizeAnalyzer",
+      "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
+      "charFilters": [],
+      "tokenizer": "standard_v2",
+      "tokenFilters": [
+        "sizeSynonyms",
+        "lowercase"
+      ]
+    },
+    {
+      "name": "sexAnalyzer",
+      "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
+      "charFilters": [],
+      "tokenizer": "englishTokenizer",
+      "tokenFilters": [
+        "lowercase",
+        "sexSynonyms"
+      ]
+    }
+  ],
+  "charFilters": [
+    {
+      "name": "expandAcronym2Char",
+      "@odata.type": "#Microsoft.Azure.Search.PatternReplaceCharFilter",
+      "pattern": "\\b([A-Z])([A-Z])\\b",
+      "replacement": "$1$2 $1 $2"
+    },
+    {
+      "name": "expandAcronym3Char",
+      "@odata.type": "#Microsoft.Azure.Search.PatternReplaceCharFilter",
+      "pattern": "\\b([A-Z])([A-Z])([A-Z])\\b",
+      "replacement": "$1$2$3 $1 $2 $3"
+    }
+  ],
+  "tokenizers": [
+    {
+      "name": "englishTokenizer",
+      "@odata.type": "#Microsoft.Azure.Search.MicrosoftLanguageStemmingTokenizer",
+      "maxTokenLength": 64,
+      "isSearchTokenizer": false,
+      "language": "english"
+    }
+  ],
+  "tokenFilters": [
+    {
+      "name": "sizeSynonyms",
+      "@odata.type": "#Microsoft.Azure.Search.SynonymTokenFilter",
+      "synonyms": [
+        "S,small",
+        "M,medium",
+        "XL,extra large",
+        "L,large"
+      ],
+      "ignoreCase": false,
+      "expand": true
+    },
+    {
+      "name": "productSynonyms",
+      "@odata.type": "#Microsoft.Azure.Search.SynonymTokenFilter",
+      "synonyms": [
+        "bike=>bicycle",
+        "lady,girl=>woman",
+        "guy,boy=>man",
+        "clothes=>clothing",
+        "hat=>cap"
+      ],
+      "ignoreCase": true,
+      "expand": false
+    },
+    {
+      "name": "sexSynonyms",
+      "@odata.type": "#Microsoft.Azure.Search.SynonymTokenFilter",
+      "synonyms": [
+        "lady,girl=>woman",
+        "guy,boy=>man"
+      ],
+      "ignoreCase": true,
+      "expand": false
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile profileName="ivrweb6qpeihhfnxajc - Web Deploy" publishMethod="MSDeploy" publishUrl="ivrweb6qpeihhfnxajc.scm.azurewebsites.net:443" msdeploySite="ivrweb6qpeihhfnxajc" userName="$ivrweb6qpeihhfnxajc" userPWD="M2mBE6BsroKelKopln883vXZT9yd81myQPdTMQ6iayhRteDSaMlQWXqNxBTt" destinationAppUrl="http://ivrweb6qpeihhfnxajc.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites">
+    <databases />
+  </publishProfile>
+  <publishProfile profileName="ivrweb6qpeihhfnxajc - FTP" publishMethod="FTP" publishUrl="ftp://waws-prod-ch1-031.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="ivrweb6qpeihhfnxajc\$ivrweb6qpeihhfnxajc" userPWD="M2mBE6BsroKelKopln883vXZT9yd81myQPdTMQ6iayhRteDSaMlQWXqNxBTt" destinationAppUrl="http://ivrweb6qpeihhfnxajc.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites">
+    <databases />
+  </publishProfile>
+</publishData>

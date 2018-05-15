@@ -1,0 +1,81 @@
+{
+  "value": [
+    {
+      "@search.score": 0.7079327,
+      "category": [
+        "bikes",
+        "road bikes"
+      ],
+      "colors": [
+        "black",
+        "red"
+      ],
+      "maxListPrice": 2443.35,
+      "maxStandardCost": 1554.9479,
+      "minListPrice": 2443.35,
+      "minStandardCost": 1518.7864,
+      "modifiedDate": "2006-06-01T00:00:00Z",
+      "name": "Road-250",
+      "productModelId": "26",
+      "products": "[{\"color\":\"Red\",\"size\":\"44\",\"productNumber\":\"BK-R89R-44\"},{\"color\":\"Red\",\"size\":\"48\",\"productNumber\":\"BK-R89R-48\"},{\"color\":\"Red\",\"size\":\"52\",\"productNumber\":\"BK-R89R-52\"},{\"color\":\"Red\",\"size\":\"58\",\"productNumber\":\"BK-R89R-58\"},{\"color\":\"Black\",\"size\":\"44\",\"productNumber\":\"BK-R89B-44\"},{\"color\":\"Black\",\"size\":\"48\",\"productNumber\":\"BK-R89B-48\"},{\"color\":\"Black\",\"size\":\"52\",\"productNumber\":\"BK-R89B-52\"},{\"color\":\"Black\",\"size\":\"58\",\"productNumber\":\"BK-R89B-58\"}]",
+      "sex": "Unisex",
+      "sizes": [
+        "44",
+        "48",
+        "52",
+        "58"
+      ]
+    },
+    {
+      "@search.score": 0.6892624,
+      "category": [
+        "bikes",
+        "road bikes"
+      ],
+      "colors": [
+        "yellow"
+      ],
+      "maxListPrice": 1120.49,
+      "maxStandardCost": 713.0798,
+      "minListPrice": 1120.49,
+      "minStandardCost": 713.0798,
+      "modifiedDate": "2006-06-01T00:00:00Z",
+      "name": "Road-550-W",
+      "productModelId": "29",
+      "products": "[{\"color\":\"Yellow\",\"size\":\"38\",\"productNumber\":\"BK-R64Y-38\"},{\"color\":\"Yellow\",\"size\":\"40\",\"productNumber\":\"BK-R64Y-40\"},{\"color\":\"Yellow\",\"size\":\"42\",\"productNumber\":\"BK-R64Y-42\"},{\"color\":\"Yellow\",\"size\":\"44\",\"productNumber\":\"BK-R64Y-44\"},{\"color\":\"Yellow\",\"size\":\"48\",\"productNumber\":\"BK-R64Y-48\"}]",
+      "sex": "Woman",
+      "sizes": [
+        "38",
+        "40",
+        "42",
+        "44",
+        "48"
+      ]
+    },
+    {
+      "@search.score": 0.6628442,
+      "category": [
+        "bikes",
+        "mountain bikes"
+      ],
+      "colors": [
+        "silver"
+      ],
+      "maxListPrice": 769.49,
+      "maxStandardCost": 419.7784,
+      "minListPrice": 769.49,
+      "minStandardCost": 419.7784,
+      "modifiedDate": "2007-06-01T00:00:00Z",
+      "name": "Mountain-400-W",
+      "productModelId": "22",
+      "products": "[{\"color\":\"Silver\",\"size\":\"38\",\"productNumber\":\"BK-M38S-38\"},{\"color\":\"Silver\",\"size\":\"40\",\"productNumber\":\"BK-M38S-40\"},{\"color\":\"Silver\",\"size\":\"42\",\"productNumber\":\"BK-M38S-42\"},{\"color\":\"Silver\",\"size\":\"46\",\"productNumber\":\"BK-M38S-46\"}]",
+      "sex": "Woman",
+      "sizes": [
+        "38",
+        "40",
+        "42",
+        "46"
+      ]
+    }
+  ]
+}

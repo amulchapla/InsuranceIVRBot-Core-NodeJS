@@ -1,0 +1,62 @@
+{
+  "agent": "botbuilder",
+  "source": "skype",
+  "sourceEvent": {
+    "id": "ebbd23fe-a039-4c71-90d3-0a0afd1d4123",
+    "participants": [
+      {
+        "identity": "29:1VvkDH1BHcdNyMjqwDs2qTsPxX5hCrwriHCrMrn9_f-g",
+        "languageId": "en",
+        "originator": true
+      },
+      {
+        "identity": "28:585b0ba5-e52e-4ac8-b1e2-b00ffaee7267",
+        "originator": false
+      }
+    ],
+    "isMultiparty": false,
+    "presentedModalityTypes": [
+      "audio"
+    ],
+    "callState": "incoming"
+  },
+  "type": "conversation",
+  "callState": "incoming",
+  "presentedModalityTypes": [
+    "audio"
+  ],
+  "address": {
+    "useAuth": true,
+    "channelId": "skype",
+    "serviceUrl": "https://skype.botframework.com",
+    "conversation": {
+      "id": "ebbd23fe-a039-4c71-90d3-0a0afd1d4123",
+      "isGroup": false
+    },
+    "participants": [
+      {
+        "id": "29:1VvkDH1BHcdNyMjqwDs2qTsPxX5hCrwriHCrMrn9_f-g",
+        "locale": "en",
+        "originator": true
+      },
+      {
+        "id": "28:585b0ba5-e52e-4ac8-b1e2-b00ffaee7267",
+        "originator": false
+      }
+    ],
+    "user": {
+      "id": "29:1VvkDH1BHcdNyMjqwDs2qTsPxX5hCrwriHCrMrn9_f-g",
+      "locale": "en",
+      "originator": true
+    },
+    "bot": {
+      "id": "28:585b0ba5-e52e-4ac8-b1e2-b00ffaee7267",
+      "originator": false
+    }
+  },
+  "user": {
+    "id": "29:1VvkDH1BHcdNyMjqwDs2qTsPxX5hCrwriHCrMrn9_f-g",
+    "locale": "en",
+    "originator": true
+  }
+}

@@ -1,0 +1,13 @@
+# use ngrok to tunnel Internet traffic to your dev environment
+#
+# copy this file to ngrok.yml and update settings as needed
+# you must have a paid authtoken in order to use the resevered subdomain option
+#
+# use `npm run ngrok` to start the tunnel
+
+authtoken: your_token_here
+tunnels:
+  ivrbot:
+    proto: http
+    addr: 3001
+   # subdomain: ivrbot
